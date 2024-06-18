@@ -202,7 +202,7 @@ class TranslatorTest(TestCase):
         translated_dict = json.loads(translated_metrics)
         for required_key in ["metric_name", "_value", "metric_type"]:
             assert required_key in translated_dict
-        assert translated_dict["metric_name"] == "sc4snmp.SNMPv2-MIB.sysUpTime_0"
+        assert translated_dict["metric_name"] == "kc4snmp.SNMPv2-MIB.sysUpTime_0"
         assert translated_dict["_value"] == input_var_binds["val"]
         assert translated_dict["metric_type"] == input_var_binds["val_type"]
 
@@ -220,7 +220,7 @@ class TranslatorTest(TestCase):
         assert translated_dict["_value"] == input_var_binds["val"]
         assert translated_dict["metric_type"] == input_var_binds["val_type"]
         untranslated_oid = input_var_binds["oid"].replace(".", "_")
-        assert translated_dict["metric_name"] == f"sc4snmp.{untranslated_oid}"
+        assert translated_dict["metric_name"] == f"kc4snmp.{untranslated_oid}"
 
     @mongomock.patch()
     def test_translate_all_snmp_simulator_data_types(self):
@@ -262,16 +262,16 @@ class TranslatorTest(TestCase):
         )
 
         expected_translations = (
-            "sc4snmp.IF-MIB.ifMtu_1",
-            "sc4snmp.SNMPv2-MIB.sysLocation_0",
-            "sc4snmp.IF-MIB.ifPhysAddress_2",
-            "sc4snmp.SNMPv2-MIB.sysORID_7",
-            "sc4snmp.TCP-MIB.tcpConnRemAddress_195_218_254_105_51684_194_67_10_226_22",
-            "sc4snmp.1_3_6_1_2_1_25_3_2_1_6_1025",
-            "sc4snmp.IF-MIB.ifHighSpeed_2",
-            "sc4snmp.SNMPv2-MIB.sysUpTime_0",
-            "sc4snmp.1_3_6_1_4_1_2021_10_1_6_1",
-            "sc4snmp.IF-MIB.ifHCOutOctets_1",
+            "kc4snmp.IF-MIB.ifMtu_1",
+            "kc4snmp.SNMPv2-MIB.sysLocation_0",
+            "kc4snmp.IF-MIB.ifPhysAddress_2",
+            "kc4snmp.SNMPv2-MIB.sysORID_7",
+            "kc4snmp.TCP-MIB.tcpConnRemAddress_195_218_254_105_51684_194_67_10_226_22",
+            "kc4snmp.1_3_6_1_2_1_25_3_2_1_6_1025",
+            "kc4snmp.IF-MIB.ifHighSpeed_2",
+            "kc4snmp.SNMPv2-MIB.sysUpTime_0",
+            "kc4snmp.1_3_6_1_4_1_2021_10_1_6_1",
+            "kc4snmp.IF-MIB.ifHCOutOctets_1",
         )
         assert (
             len(oids) == len(str_values)
@@ -305,8 +305,8 @@ class TranslatorTest(TestCase):
             },
         ]
         expected_values = [
-            "sc4snmp.VMSTORE-MIB.mirrorLatency",
-            "sc4snmp.VERITAS-APPLIANCE-MONITORING-MIB.vrtssystemName",
+            "kc4snmp.VMSTORE-MIB.mirrorLatency",
+            "kc4snmp.VERITAS-APPLIANCE-MONITORING-MIB.vrtssystemName",
         ]
 
         for i in range(0, len(input_var_binds)):

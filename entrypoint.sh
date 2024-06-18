@@ -54,7 +54,7 @@ trap 'kill ${!}; quit_handler' SIGQUIT
 
 
 echo starting sc4-snmp-mib-server
-sc4snmp-mib-server $@ &
+kc4snmp-mib-server $@ &
 pid="$!"
 sleep 2
 if ! ps -p $pid > /dev/null

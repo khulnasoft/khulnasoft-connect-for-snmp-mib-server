@@ -62,5 +62,5 @@ export MIBS_FILES_URL=http://0.0.0.0:5000/files/asn1/@mib@
 #### Run Mib Server
 ```
 poetry install
-poetry run sc4snmp-mib-server
+poetry run kc4snmp-mib-server
 ```

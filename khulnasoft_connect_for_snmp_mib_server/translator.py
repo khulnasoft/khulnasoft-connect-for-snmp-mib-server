@@ -375,7 +375,7 @@ class Translator:
         # .. if the metric name contains a . replace with _
         metric_data[
             "metric_name"
-        ] = f'sc4snmp.{translated_oid.replace(".","_").replace("::", ".")}'
+        ] = f'kc4snmp.{translated_oid.replace(".","_").replace("::", ".")}'
         metric_data["_value"] = translated_val
         metric_data["metric_type"] = val_type
         if custom_translated_oid:

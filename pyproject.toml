@@ -36,7 +36,7 @@ pytest = "^6.2.5"
 pytest-cov = "^3.0.0"
 
 [tool.poetry.scripts]
-sc4snmp-mib-server = "khulnasoft_connect_for_snmp_mib_server.snmp_mib_server:main"
+kc4snmp-mib-server = "khulnasoft_connect_for_snmp_mib_server.snmp_mib_server:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
