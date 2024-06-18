@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: ort-action
         uses: khulnasoft/addonfactory-ort-action@v1
         id: ort-action
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Check License Header
         uses: apache/skywalking-eyes@main # always prefer to use a revision instead of `main`.
         env:
@@ -63,7 +63,7 @@ jobs:
           - 3.8
           - 3.9
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup python
         uses: actions/setup-python@v5
         with:
@@ -94,7 +94,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Lint Code Base
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
@@ -110,7 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Trufflehog Actions Scan
         uses: edplato/trufflehog-actions-scan@v0.9f-beta
         with:
@@ -120,7 +120,7 @@ jobs:
     runs-on: ubuntu-latest
     name: security-sast-semgrep
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Semgrep
         id: semgrep
         uses: returntocorp/semgrep-action@v1
@@ -130,7 +130,7 @@ jobs:
     name: security-vuln-snyk
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python-3.8@master
         env:
@@ -149,7 +149,7 @@ jobs:
       - compliance-dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           #Very Important semantic-release won't trigger a tagged
           #build if this is not set false
@@ -241,5 +241,5 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: haya14busa/action-update-semver@v1
